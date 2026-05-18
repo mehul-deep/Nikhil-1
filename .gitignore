@@ -1,0 +1,23 @@
+# Visual Studio files
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Temporary files
+*.log
+*.tmp
+
+# Large binary files (Optional, keep if you want them in Git)
+*.zip
+*.exe
+*.dll
+*.pdb
+
+# Local settings
+appstate.json
+recent_projects.json
+project_data.db

@@ -1,0 +1,157 @@
+{
+    "tanks": [
+
+        {
+            "type": "50,000 gallon",
+            "diameter": "24",
+            "Centroid": "14.91",
+            "height": "27.5416",
+            "Weight_of_Water": "448",
+            "Weight_of_Steel": "19.1583",
+            "Total_Weight": "467.1583",
+            "Projected_Area": "478.77",
+            "thickness": "0.375"
+
+
+        },
+        {
+            "type": "75,000 gallon",
+            "diameter": "27",
+            "Centroid": "16.88",
+            "height": "31.1629",
+            "Weight_of_Water": "641",
+            "Weight_of_Steel": "25.2145",
+            "Total_Weight": "666.2145",
+            "Projected_Area": "609.33",
+            "thickness": "0.375"
+
+
+        },
+        {
+          "type": "100,000 gallon",
+          "diameter": "30",
+          "Centroid": "18.77",
+          "height": "34.7842",
+          "Weight_of_Water": "883",
+          "Weight_of_Steel": "54.6153",
+          "Total_Weight": "937.6153",
+          "Projected_Area": "755.11",
+          "thickness": "0.375"
+
+
+        },
+        {
+            "type": "125,000 gallon",
+            "diameter": "32.33",
+            "Centroid": "20.18",
+            "height": "37.1004",
+            "Weight_of_Water": "1107",
+            "Weight_of_Steel": "40.3902",
+            "Total_Weight": "1147.3902",
+            "Projected_Area": "874.96",
+            "thickness": "0.375"
+
+
+        },
+        {
+            "type": "150,000",
+            "diameter": "34",
+            "Centroid": "159.10",
+            "height": "39.1126",
+            "Weight_of_Water": "1283",
+            "Weight_of_Steel": "66.2382",
+            "Total_Weight": "1349.2382",
+            "Projected_Area": "966.01",
+            "thickness": "0.375"
+
+
+        },
+        {
+            "type": "200,000 gallon",
+            "diameter": "40.5",
+            "Centroid": "22.56",
+            "height": "41.2088",
+            "Weight_of_Water": "1969",
+            "Weight_of_Steel": "61.8419",
+            "Total_Weight": "2030.8419",
+            "Projected_Area": "1163",
+            "thickness": "0.4"
+
+        },
+
+        {
+            "type": "250,000 gallon",
+            "diameter": "43.67",
+            "Centroid": "24.24",
+            "height": "43.9459",
+            "Weight_of_Water": "2122",
+            "Weight_of_Steel": "77.4918",
+            "Total_Weight": "2199.4918",
+            "Projected_Area": "1347.18",
+            "thickness": "0.4"
+
+        },
+        {
+            "type": "300,000 gallon",
+            "diameter": "46.5",
+            "Centroid": "26.04",
+            "height": "46.9516",
+            "Weight_of_Water": "2603",
+            "Weight_of_Steel": "87.7734",
+            "Total_Weight": "2690.7734",
+            "Projected_Area": "1552.23",
+            "thickness": "0.546"
+
+        },
+        {
+            "type": "400,000 gallon",
+            "diameter": "51.5",
+            "Centroid": "28.83",
+            "height": "51.9871",
+            "Weight_of_Water": "3455",
+            "Weight_of_Steel": "123.9745",
+            "Total_Weight": "3578.9745",
+            "Projected_Area": "1900.48",
+            "thickness": "0.546"
+
+        },
+        {
+            "type": "500,000 gallon",
+            "diameter": "54",
+            "Centroid": "30.96",
+            "height": "54.2548",
+            "Weight_of_Water": "4305",
+            "Weight_of_Steel": "142.800",
+            "Total_Weight": "4447.8001",
+            "Projected_Area": "2111.58",
+            "thickness": "0.546"
+
+        },
+        {
+            "type": "600,000 gallon",
+            "diameter": "62.5",
+            "Centroid": "22.9",
+            "height": "57.2651",
+            "Weight_of_Water": "5474",
+            "Weight_of_Steel": "189.7228",
+            "Total_Weight": "5663.72228",
+            "Projected_Area": "710.42",
+            "thickness": "0.1"
+
+        },
+        {
+            "type": "750,000 gallon",
+            "diameter": "83",
+            "Centroid": "35.12",
+            "height": "62.1187",
+            "Weight_of_Water": "6798",
+            "Weight_of_Steel": "234.3149",
+            "Total_Weight": "7032.3149",
+            "Projected_Area": "2828.77",
+            "thickness": "0.546"
+
+        }
+
+
+    ]
+}
