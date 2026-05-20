@@ -677,10 +677,13 @@ namespace WaterTankTool_WFA
                         Tu      REAL    NOT NULL CHECK(Tu >= 0),
                         Vu      REAL    NOT NULL CHECK(Vu >= 0),
                         Mu      REAL,
+                        FcPrime REAL,
+                        Hef     REAL,
                         Phi     REAL,
                         E       REAL,
                         S       REAL,
-                        Nbs     INTEGER
+                        Nbs     INTEGER,
+                        DistributionMethod TEXT
                     );
 
                     CREATE TABLE IF NOT EXISTS BasePlateEntity (

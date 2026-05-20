@@ -53,6 +53,10 @@ namespace WaterTankTool_WFA.Entity
         // Mu = Governing Overturning Moment (kip-ft)
         public double? Mu { get; set; }
 
+        // Concrete Properties
+        public double? FcPrime { get; set; } // Concrete Compressive Strength (psi)
+        public double? Hef { get; set; } // Effective Embedment Depth (in)
+
         // φ = resistance factor, if your software includes strength check
         public double? Phi { get; set; }
 
@@ -64,5 +68,7 @@ namespace WaterTankTool_WFA.Entity
 
         // nbs = number of bolts per segment
         public int? Nbs { get; set; }
+
+        public string? DistributionMethod { get; set; }
     }
 }

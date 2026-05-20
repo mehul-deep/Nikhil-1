@@ -31,6 +31,8 @@
             groupBox1 = new GroupBox();
             textBox16 = new TextBox();
             textBox17 = new TextBox();
+            textBox18 = new TextBox();
+            textBox19 = new TextBox();
             textBox15 = new TextBox();
             textBox14 = new TextBox();
             textBox13 = new TextBox();
@@ -39,6 +41,8 @@
             textBox10 = new TextBox();
             label16 = new Label();
             label17 = new Label();
+            label18 = new Label();
+            label19 = new Label();
             label15 = new Label();
             label14 = new Label();
             label13 = new Label();
@@ -63,6 +67,8 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            label20 = new Label();
+            comboBox1 = new ComboBox();
             button1 = new Button();
             button2 = new Button();
             groupBox1.SuspendLayout();
@@ -70,6 +76,12 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(label20);
+            groupBox1.Controls.Add(textBox19);
+            groupBox1.Controls.Add(label19);
+            groupBox1.Controls.Add(textBox18);
+            groupBox1.Controls.Add(label18);
             groupBox1.Controls.Add(textBox17);
             groupBox1.Controls.Add(label17);
             groupBox1.Controls.Add(textBox16);
@@ -106,10 +118,60 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(19, 23);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(541, 305);
+            groupBox1.Size = new Size(541, 380);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Anchor Bolt ";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(282, 343);
+            label20.Name = "label20";
+            label20.Size = new Size(115, 15);
+            label20.TabIndex = 38;
+            label20.Text = "Distribution Method";
+            // 
+            // comboBox1
+            // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(413, 340);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(115, 23);
+            comboBox1.TabIndex = 39;
+            // 
+            // textBox19
+            // 
+            textBox19.Location = new Point(413, 311);
+            textBox19.Name = "textBox19";
+            textBox19.Size = new Size(85, 23);
+            textBox19.TabIndex = 37;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(282, 314);
+            label19.Name = "label19";
+            label19.Size = new Size(130, 15);
+            label19.TabIndex = 36;
+            label19.Text = "Embedment Depth (hef)";
+            // 
+            // textBox18
+            // 
+            textBox18.Location = new Point(413, 282);
+            textBox18.Name = "textBox18";
+            textBox18.Size = new Size(85, 23);
+            textBox18.TabIndex = 35;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(282, 285);
+            label18.Name = "label18";
+            label18.Size = new Size(130, 15);
+            label18.TabIndex = 34;
+            label18.Text = "Concrete Strength (f'c)";
             // 
             // textBox17
             // 
@@ -385,7 +447,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(485, 299);
+            button1.Location = new Point(485, 410);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 1;
@@ -395,7 +457,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(394, 299);
+            button2.Location = new Point(394, 410);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 2;
@@ -409,7 +471,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = button2;
-            ClientSize = new Size(582, 339);
+            ClientSize = new Size(582, 450);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(groupBox1);
@@ -461,5 +523,11 @@
         private TextBox textBox16;
         private TextBox textBox17;
         private Label label17;
+        private TextBox textBox18;
+        private Label label18;
+        private TextBox textBox19;
+        private Label label19;
+        private Label label20;
+        private ComboBox comboBox1;
     }
 }

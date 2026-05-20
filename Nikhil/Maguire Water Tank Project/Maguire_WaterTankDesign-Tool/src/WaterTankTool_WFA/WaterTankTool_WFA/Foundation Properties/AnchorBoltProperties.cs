@@ -24,17 +24,6 @@ namespace WaterTankTool_WFA.Foundation_Properties
             _context = WaterTankDbContext.GetInstance();
 
             this.Load += AnchorBoltProperties_Load;
-
-            // optional: better for long angle/coordinate text
-            textBox4.Multiline = true;
-            textBox4.Height = 45;
-            textBox4.ScrollBars = ScrollBars.Vertical;
-
-            textBox5.Multiline = true;
-            textBox5.Height = 45;
-            textBox5.ScrollBars = ScrollBars.Vertical;
-
-
         }
 
         private void AnchorBoltProperties_Load(object? sender, EventArgs e)
@@ -59,6 +48,7 @@ namespace WaterTankTool_WFA.Foundation_Properties
                 }
 
                 CalculateAnchorBoltValues(anchorBolt);
+                PopulateBoltDropdown(anchorBolt);
             }
             catch (Exception ex)
             {
@@ -92,6 +82,13 @@ namespace WaterTankTool_WFA.Foundation_Properties
             if (anchorBolt.E.HasValue)
             {
                 clearEdgeDistance = eq.ClearEdgeDistance(anchorBolt.E.Value, anchorBolt.Dh);
+                
+                // Section 10: Clear Edge Distance Check
+                // PDF says SAFE if > 1.5 in (absolute minimum)
+                bool isSafe = clearEdgeDistance.Value >= 1.5;
+                labelEdgeDistanceStatus.Text = isSafe ? "PASS" : "FAIL";
+                labelEdgeDistanceStatus.ForeColor = isSafe ? Color.Green : Color.Red;
+                textBox9.BackColor = isSafe ? Color.LightGreen : Color.LightCoral;
             }
 
             // --- Updated Calculation Logic ---
@@ -103,8 +100,20 @@ namespace WaterTankTool_WFA.Foundation_Properties
             }
 
             double tensionPerBolt;
-            // Use Circular Group Assumption (2 * Tu / Nb) as per updated design doc
-            tensionPerBolt = eq.TensionDemandPerBolt_CircularGroup(totalTensionTu, anchorBolt.Nb);
+            // Use selected Distribution Method
+            switch (anchorBolt.DistributionMethod)
+            {
+                case "Equal Distribution":
+                    tensionPerBolt = eq.TensionDemandPerBolt_Equal(totalTensionTu, anchorBolt.Nb);
+                    break;
+                case "Effective Bolts":
+                    tensionPerBolt = eq.TensionDemandPerBolt_Effective(totalTensionTu, anchorBolt.Nb);
+                    break;
+                case "Circular Group":
+                default:
+                    tensionPerBolt = eq.TensionDemandPerBolt_CircularGroup(totalTensionTu, anchorBolt.Nb);
+                    break;
+            }
 
             double shearPerBolt = eq.ShearDemandPerBolt(anchorBolt.Vu, anchorBolt.Nb);
 
@@ -159,16 +168,45 @@ namespace WaterTankTool_WFA.Foundation_Properties
             textBox1.Text = area.ToString("F4");
             textBox2.Text = holeArea.ToString("F4");
             textBox3.Text = angularSpacing.ToString("F4");
-            textBox4.Text = BuildBoltAnglesText(eq, anchorBolt);
-            textBox5.Text = BuildBoltCoordinatesText(eq, anchorBolt);
             textBox6.Text = (arcSpacing * 12.0).ToString("F2"); // Convert to inches
             textBox7.Text = (chordSpacing * 12.0).ToString("F2"); // Convert to inches
             textBox8.Text = boltsPerSegment?.ToString("F4") ?? "";
             textBox9.Text = clearEdgeDistance?.ToString("F4") ?? "";
+            textBox18.Text = totalTensionTu.ToString("F4"); // New field: Total Uplift (Tu)
             textBox10.Text = tensionPerBolt.ToString("F4");
             textBox11.Text = shearPerBolt.ToString("F4");
             textBox12.Text = tensileCapacity > 0 ? tensileCapacity.ToString("F4") : "";
             textBox13.Text = shearCapacity > 0 ? shearCapacity.ToString("F4") : "";
+
+            // --- Sections 15, 16, 17 ---
+            if (anchorBolt.Hef.HasValue)
+            {
+                // Section 15: Minimum Embedment Check (hef >= 8 * db)
+                bool embedmentPass = anchorBolt.Hef.Value >= (8.0 * anchorBolt.Db);
+                textBox15.Text = embedmentPass ? "PASS" : "FAIL";
+                textBox15.BackColor = embedmentPass ? Color.LightGreen : Color.LightCoral;
+
+                if (anchorBolt.FcPrime.HasValue)
+                {
+                    // Section 16: Concrete Breakout Capacity (Factored: phi * Nb)
+                    // kc = 24 for cast-in anchors as per PDF example
+                    double breakoutCapacity = eq.ConcreteBreakoutStrength(24, anchorBolt.FcPrime.Value, anchorBolt.Hef.Value);
+                    double breakoutCapacityKips = breakoutCapacity / 1000.0;
+                    double designBreakoutCapacity = (anchorBolt.Phi ?? 0.75) * breakoutCapacityKips;
+                    
+                    textBox16.Text = designBreakoutCapacity.ToString("F2"); // Matches PDF Section 16 (1070 kips)
+
+                    // Section 17: Concrete Breakout Utilization
+                    double breakoutUtilization = eq.ConcreteBreakoutUtilization(tensionPerBolt, breakoutCapacityKips, anchorBolt.Phi ?? 0.75);
+                    textBox17.Text = breakoutUtilization.ToString("F4");
+
+                    bool breakoutPass = breakoutUtilization <= 1.0;
+                    textBox17.BackColor = breakoutPass ? Color.LightGreen : Color.LightCoral;
+                    labelBreakoutStatus.Text = breakoutPass ? "PASS" : "FAIL";
+                    labelBreakoutStatus.ForeColor = breakoutPass ? Color.Green : Color.Red;
+                }
+            }
+            // --- End Sections 15, 16, 17 ---
 
             if (tensileCapacity > 0 && shearCapacity > 0)
             {
@@ -187,8 +225,56 @@ namespace WaterTankTool_WFA.Foundation_Properties
             {
                 textBox8.BackColor = Color.White;
             }
+        }
 
-            textBox9.BackColor = clearEdgeDistance.HasValue ? Color.White : Color.LightYellow;
+        private void PopulateBoltDropdown(AnchorBoltEntity anchorBolt)
+        {
+            comboBoxBoltSelect.Items.Clear();
+            for (int i = 1; i <= anchorBolt.Nb; i++)
+            {
+                comboBoxBoltSelect.Items.Add($"Bolt {i}");
+            }
+
+            if (comboBoxBoltSelect.Items.Count > 0)
+            {
+                comboBoxBoltSelect.SelectedIndex = 0;
+            }
+        }
+
+        private void comboBoxBoltSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var anchorBolt = _context.AnchorBoltEntity.FirstOrDefault();
+            if (anchorBolt == null) return;
+
+            int boltIndex = comboBoxBoltSelect.SelectedIndex + 1;
+            var eq = new FoundationEquations.AnchorBoltEquations();
+
+            double angle = eq.BoltAngle(anchorBolt.Ab, boltIndex, anchorBolt.Nb);
+            double x = eq.BoltXCoordinate(anchorBolt.Rb, angle);
+            double y = eq.BoltYCoordinate(anchorBolt.Rb, angle);
+
+            textBoxAngleDetail.Text = angle.ToString("F2");
+            textBoxXCoordDetail.Text = x.ToString("F2");
+            textBoxYCoordDetail.Text = y.ToString("F2");
+            textBoxLocationDetail.Text = GetBoltLocationDescription(angle);
+        }
+
+        private string GetBoltLocationDescription(double angle)
+        {
+            // Normalize angle to 0-360 range
+            double normAngle = angle % 360;
+            if (normAngle < 0) normAngle += 360;
+
+            if (normAngle == 0 || normAngle == 360) return "Right";
+            if (normAngle > 0 && normAngle < 90) return "Upper-right";
+            if (normAngle == 90) return "Top";
+            if (normAngle > 90 && normAngle < 180) return "Upper-left";
+            if (normAngle == 180) return "Left";
+            if (normAngle > 180 && normAngle < 270) return "Lower-left";
+            if (normAngle == 270) return "Bottom";
+            if (normAngle > 270 && normAngle < 360) return "Lower-right";
+
+            return "Unknown";
         }
 
         private void SetInteractionStatus(double? interactionValue, bool? interactionPass, bool isWarning = false)
@@ -268,7 +354,10 @@ namespace WaterTankTool_WFA.Foundation_Properties
         private void textBox14_DoubleClick(object sender, EventArgs e)
         {
             AnchorBoltParameters anchorBoltParameters = new AnchorBoltParameters();
-            anchorBoltParameters.ShowDialog();
+            if (anchorBoltParameters.ShowDialog() == DialogResult.OK)
+            {
+                LoadAnchorBoltCalculatedValues();
+            }
         }
     }
 }

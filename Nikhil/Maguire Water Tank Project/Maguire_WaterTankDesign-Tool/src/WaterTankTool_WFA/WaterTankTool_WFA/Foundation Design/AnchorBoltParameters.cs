@@ -21,8 +21,11 @@ namespace WaterTankTool_WFA.Foundation_Design
 
             _context = WaterTankDbContext.GetInstance();
 
-            this.Load += AnchorBoltParameters_Load;
+            // Initialize ComboBox
+            comboBox1.Items.AddRange(new string[] { "Circular Group", "Equal Distribution", "Effective Bolts" });
+            comboBox1.SelectedIndex = 0; // Default
 
+            this.Load += AnchorBoltParameters_Load;
         }
 
         private void AnchorBoltParameters_Load(object? sender, EventArgs e)
@@ -58,6 +61,14 @@ namespace WaterTankTool_WFA.Foundation_Design
                 textBox15.Text = _existingAnchorBolt.S?.ToString(CultureInfo.InvariantCulture) ?? "";
                 textBox16.Text = _existingAnchorBolt.Nbs?.ToString() ?? "";
                 textBox17.Text = _existingAnchorBolt.Mu?.ToString(CultureInfo.InvariantCulture) ?? "";
+                textBox18.Text = _existingAnchorBolt.FcPrime?.ToString(CultureInfo.InvariantCulture) ?? "";
+                textBox19.Text = _existingAnchorBolt.Hef?.ToString(CultureInfo.InvariantCulture) ?? "";
+
+                if (!string.IsNullOrEmpty(_existingAnchorBolt.DistributionMethod))
+                {
+                    int index = comboBox1.FindStringExact(_existingAnchorBolt.DistributionMethod);
+                    if (index != -1) comboBox1.SelectedIndex = index;
+                }
 
                 SavedAnchorBolt = _existingAnchorBolt;
             }
@@ -87,13 +98,23 @@ namespace WaterTankTool_WFA.Foundation_Design
 
                 entity.Fy = ParseDoubleNullable(textBox9);
                 entity.Fu = ParseDoubleNullable(textBox10);
-                entity.Tu = ParseDoubleRequired(textBox11, "Tension Demand");
+                entity.Tu = ParseDoubleNullable(textBox11) ?? 0;
                 entity.Vu = ParseDoubleRequired(textBox12, "Shear Demand");
                 entity.Phi = ParseDoubleNullable(textBox13);
                 entity.E = ParseDoubleNullable(textBox14);
                 entity.S = ParseDoubleNullable(textBox15);
                 entity.Nbs = ParseIntNullable(textBox16);
                 entity.Mu = ParseDoubleNullable(textBox17);
+                entity.FcPrime = ParseDoubleNullable(textBox18);
+                entity.Hef = ParseDoubleNullable(textBox19);
+
+                // Validation: Either Tu or Mu must be provided
+                if (entity.Tu <= 0 && (entity.Mu == null || entity.Mu <= 0))
+                {
+                    throw new Exception("Either Tension Demand or Governing Moment (Mu) must be provided.");
+                }
+
+                entity.DistributionMethod = comboBox1.SelectedItem?.ToString();
 
                 if (_existingAnchorBolt == null)
                 {

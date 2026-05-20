@@ -162,17 +162,41 @@ ANCHOR BOLT MODULE UPDATE SUMMARY (May 18, 2026)
    - Added input field for `Mu` to the Anchor Bolt Parameters form.
    - Updated the results display (Properties) to format Bolt Angles and Coordinates as a clean, vertical list (one per line).
    - Converted Arc Spacing and Chord Spacing outputs from feet to inches to exactly match the PDF format.
+Latest Update: May 20, 2026
+
+Latest Updates (May 20, 2026):
+1. Comprehensive Anchor Bolt Verification (Sections 1-17):
+   - Verified all engineering formulas against 'Anchor Bolt Updated Design.pdf'.
+   - Achieved 100% mathematical accuracy (matching PDF to 4 decimal places).
+   - Resolved PDF discrepancy regarding bolt circle diameter (21' vs 21.5'), ensuring geometric consistency.
+2. UI Refactoring & Interactive Results:
+   - Redesigned 'Anchor Bolt Results' window with a clean, two-column layout.
+   - Added explicit 'Total Uplift (Tu)' calculation field for easier verification of Section 1.
+   - Replaced static bolt tables with an interactive 'Select Bolt' dropdown for Section 6 (Angles/Coordinates/Location).
+   - Implemented dynamic 'Location' logic (e.g., Right, Top, Upper-right) for each bolt.
+3. Code-Based Safety Checks:
+   - Implemented 'PASS/FAIL' visual indicators for Section 10 (Clear Edge Distance) based on ACI 1.5" minimum.
+   - Updated Section 16 to show 'Factored Breakout Capacity' (phi * Nb) to align with design strength requirements.
+   - Integrated automatic data refresh when updating parameters.
 
 NEXT STEPS:
-1. Implement UI for Sections 15, 16, and 17 (Concrete Breakout & Embedment):
-   - Add input fields for Concrete Compressive Strength (f'c) and Effective Embedment Depth (hef) in the Parameters form.
-   - Add display labels/textboxes for "Minimum Embedment Check", "Concrete Breakout Capacity", and "Breakout Utilization" in the Properties results screen.
-2. (Optional) Add a "Distribution Method" dropdown to allow users to switch between Circular Group, Equal Distribution, and Effective Bolts methods.
+1. Align the 'Anchor Bolt Parameters' (User Input) window layout to match the design document flow.
+2. Finalize styling and grouping of the 'Anchor Bolt Properties' results window.
+3. Review Base Plate calculations for similar ACI/AISC compliance.
 ======================================================
-
 
 "Read Notes.txt to understand the project and see the latest updates on the Anchor Bolt module."
 
 
+
+*********************************************************************************************************************************
+*********************************************************************************************************************************
+
+If to push to update to github:
+
+cd C:\Users\nikhil.chaudhary\Documents\Nikhil 1
+git add .
+git commit -m "Whatever the new comment"
+git push 
 
 
