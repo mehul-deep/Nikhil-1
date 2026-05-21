@@ -41,7 +41,7 @@
             // button1
             // 
             button1.BackColor = SystemColors.ButtonShadow;
-            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackgroundImage = Properties.Resources.SS12;
             button1.BackgroundImageLayout = ImageLayout.Stretch;
             button1.ForeColor = SystemColors.ControlText;
             button1.Location = new Point(38, 38);

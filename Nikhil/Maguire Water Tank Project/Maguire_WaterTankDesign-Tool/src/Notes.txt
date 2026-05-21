@@ -182,15 +182,11 @@ Latest Updates (May 20, 2026):
 NEXT STEPS:
 1. Align the 'Anchor Bolt Parameters' (User Input) window layout to match the design document flow.
 2. Finalize styling and grouping of the 'Anchor Bolt Properties' results window.
-3. Review Base Plate calculations for similar ACI/AISC compliance.
+3. Add Fotting Section with the image under Analysis (Select Segments to Analyze)
+4. Add image for Anker Bolt in both the side woth the updated image.
+5. Review Base Plate calculations for similar ACI/AISC compliance.
 ======================================================
 
-"Read Notes.txt to understand the project and see the latest updates on the Anchor Bolt module."
-
-
-
-*********************************************************************************************************************************
-*********************************************************************************************************************************
 
 If to push to update to github:
 
@@ -199,4 +195,37 @@ git add .
 git commit -m "Whatever the new comment"
 git push 
 
+To start the application
+cd "C:\Users\nikhil.chaudhary\Documents\Nikhil 1\Nikhil\Maguire Water Tank Project\Maguire_WaterTankDesign-Tool\src\WaterTankTool_WFA\WaterTankTool_WFA"
+dotnet run
 
+
+
+ The Distribution Method determines how the total uplift force (tension) is divided among the individual anchor bolts.
+  Since not all engineering scenarios are the same, the tool provides three options:
+
+   1. Circular Group (The Default):
+       * Math: T_{bolt} = (2 × Total Tension)/(N_b)
+       * Why it's used: This is the standard "simplified" assumption for circular anchor groups (as shown in your Page 2
+         of the PDF). It accounts for the fact that bolts on one side of the circle take more load than those near the
+         neutral axis.
+
+   2. Equal Distribution:
+       * Math: T_{bolt} = (Total Tension)/(N_b)
+       * Why it's used: This assumes every bolt takes an exactly equal share of the load. This is a very conservative or
+         simplified approach sometimes used for small groups or non-moment loads.
+
+   3. Effective Bolts:
+       * Math: T_{bolt} = \frac{Total Tension}{N_{eff}}
+       * Why it's used: This is used when an engineer assumes only a specific subset of bolts (those in the "tension
+         zone") are actually resisting the uplift, rather than all of them.
+
+  Do we need it?
+  Technically, Yes. For a professional tool, providing these options allows engineers to:
+   * Match specific code requirements: Different codes (ACI vs. AISC) or local standards might prefer one distribution
+     model over another.
+   * Verification: It allows you to "sanity check" your results against different manual calculation methods.
+
+  However, since your design document specifically uses the Circular Group formula ((2T)/(N_b)), that is the most
+  "correct" one for this project. If you want to simplify the tool, we could remove the dropdown and hardcode it to
+  always use the Circular Group method, but keeping it provides flexibility for future projects.

@@ -126,7 +126,7 @@
             // label20
             // 
             label20.AutoSize = true;
-            label20.Location = new Point(282, 343);
+            label20.Location = new Point(12, 348);
             label20.Name = "label20";
             label20.Size = new Size(115, 15);
             label20.TabIndex = 38;
@@ -136,22 +136,22 @@
             // 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(413, 340);
+            comboBox1.Location = new Point(141, 345);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(115, 23);
             comboBox1.TabIndex = 39;
             // 
             // textBox19
             // 
-            textBox19.Location = new Point(413, 311);
+            textBox19.Location = new Point(141, 316);
             textBox19.Name = "textBox19";
-            textBox19.Size = new Size(85, 23);
+            textBox19.Size = new Size(84, 23);
             textBox19.TabIndex = 37;
             // 
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(282, 314);
+            label19.Location = new Point(12, 319);
             label19.Name = "label19";
             label19.Size = new Size(130, 15);
             label19.TabIndex = 36;
@@ -159,15 +159,15 @@
             // 
             // textBox18
             // 
-            textBox18.Location = new Point(413, 282);
+            textBox18.Location = new Point(141, 287);
             textBox18.Name = "textBox18";
-            textBox18.Size = new Size(85, 23);
+            textBox18.Size = new Size(84, 23);
             textBox18.TabIndex = 35;
             // 
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(282, 285);
+            label18.Location = new Point(12, 290);
             label18.Name = "label18";
             label18.Size = new Size(130, 15);
             label18.TabIndex = 34;
@@ -175,15 +175,15 @@
             // 
             // textBox17
             // 
-            textBox17.Location = new Point(413, 253);
+            textBox17.Location = new Point(141, 258);
             textBox17.Name = "textBox17";
-            textBox17.Size = new Size(85, 23);
+            textBox17.Size = new Size(84, 23);
             textBox17.TabIndex = 33;
             // 
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(282, 256);
+            label17.Location = new Point(12, 261);
             label17.Name = "label17";
             label17.Size = new Size(130, 15);
             label17.TabIndex = 32;

@@ -266,6 +266,7 @@ partial class WaterTank
         // anchorToolStripMenuItem
         // 
         resources.ApplyResources(anchorToolStripMenuItem, "anchorToolStripMenuItem");
+        anchorToolStripMenuItem.Image = Properties.Resources.SS12;
         anchorToolStripMenuItem.Name = "anchorToolStripMenuItem";
         anchorToolStripMenuItem.Click += anchorToolStripMenuItem_Click;
         // 

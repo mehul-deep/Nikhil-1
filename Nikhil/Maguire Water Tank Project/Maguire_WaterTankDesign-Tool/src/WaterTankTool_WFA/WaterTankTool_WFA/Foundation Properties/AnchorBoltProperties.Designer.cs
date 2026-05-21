@@ -67,6 +67,16 @@ namespace WaterTankTool_WFA.Foundation_Properties
             textBox17 = new TextBox();
             labelBreakoutStatus = new Label();
             labelEdgeDistanceStatus = new Label();
+            labelTbp = new Label();
+            textBoxTbp = new TextBox();
+            labelMu = new Label();
+            textBoxMu = new TextBox();
+            labelFcPrime = new Label();
+            textBoxFcPrime = new TextBox();
+            labelHef = new Label();
+            textBoxHef = new TextBox();
+            labelDistMethod = new Label();
+            textBoxDistMethod = new TextBox();
             groupBoxBoltDetail = new GroupBox();
             labelBoltSelect = new Label();
             comboBoxBoltSelect = new ComboBox();
@@ -84,6 +94,16 @@ namespace WaterTankTool_WFA.Foundation_Properties
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(labelDistMethod);
+            groupBox1.Controls.Add(textBoxDistMethod);
+            groupBox1.Controls.Add(labelHef);
+            groupBox1.Controls.Add(textBoxHef);
+            groupBox1.Controls.Add(labelFcPrime);
+            groupBox1.Controls.Add(textBoxFcPrime);
+            groupBox1.Controls.Add(labelMu);
+            groupBox1.Controls.Add(textBoxMu);
+            groupBox1.Controls.Add(labelTbp);
+            groupBox1.Controls.Add(textBoxTbp);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(textBox1);
             groupBox1.Controls.Add(label2);
@@ -121,10 +141,80 @@ namespace WaterTankTool_WFA.Foundation_Properties
             groupBox1.Controls.Add(labelBreakoutStatus);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(660, 310);
+            groupBox1.Size = new Size(660, 400);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Anchor Bolt Calculation Results";
+            // 
+            // labelTbp
+            // 
+            labelTbp.Location = new Point(20, 240);
+            labelTbp.Name = "labelTbp";
+            labelTbp.Size = new Size(180, 23);
+            labelTbp.Text = "Base Plate Thickness (in):";
+            // 
+            // textBoxTbp
+            // 
+            textBoxTbp.Location = new Point(210, 237);
+            textBoxTbp.Name = "textBoxTbp";
+            textBoxTbp.ReadOnly = true;
+            textBoxTbp.Size = new Size(80, 23);
+            // 
+            // labelMu
+            // 
+            labelMu.Location = new Point(20, 270);
+            labelMu.Name = "labelMu";
+            labelMu.Size = new Size(180, 23);
+            labelMu.Text = "Governing Moment (kip-ft):";
+            // 
+            // textBoxMu
+            // 
+            textBoxMu.Location = new Point(210, 267);
+            textBoxMu.Name = "textBoxMu";
+            textBoxMu.ReadOnly = true;
+            textBoxMu.Size = new Size(80, 23);
+            // 
+            // labelFcPrime
+            // 
+            labelFcPrime.Location = new Point(20, 300);
+            labelFcPrime.Name = "labelFcPrime";
+            labelFcPrime.Size = new Size(180, 23);
+            labelFcPrime.Text = "Concrete Strength (psi):";
+            // 
+            // textBoxFcPrime
+            // 
+            textBoxFcPrime.Location = new Point(210, 297);
+            textBoxFcPrime.Name = "textBoxFcPrime";
+            textBoxFcPrime.ReadOnly = true;
+            textBoxFcPrime.Size = new Size(80, 23);
+            // 
+            // labelHef
+            // 
+            labelHef.Location = new Point(20, 330);
+            labelHef.Name = "labelHef";
+            labelHef.Size = new Size(180, 23);
+            labelHef.Text = "Embedment Depth (in):";
+            // 
+            // textBoxHef
+            // 
+            textBoxHef.Location = new Point(210, 327);
+            textBoxHef.Name = "textBoxHef";
+            textBoxHef.ReadOnly = true;
+            textBoxHef.Size = new Size(80, 23);
+            // 
+            // labelDistMethod
+            // 
+            labelDistMethod.Location = new Point(20, 360);
+            labelDistMethod.Name = "labelDistMethod";
+            labelDistMethod.Size = new Size(180, 23);
+            labelDistMethod.Text = "Distribution Method:";
+            // 
+            // textBoxDistMethod
+            // 
+            textBoxDistMethod.Location = new Point(210, 357);
+            textBoxDistMethod.Name = "textBoxDistMethod";
+            textBoxDistMethod.ReadOnly = true;
+            textBoxDistMethod.Size = new Size(120, 23);
             // 
             // label1
             // 
@@ -384,12 +474,12 @@ namespace WaterTankTool_WFA.Foundation_Properties
             groupBoxBoltDetail.Controls.Add(textBoxXCoordDetail);
             groupBoxBoltDetail.Controls.Add(labelYCoordDetail);
             groupBoxBoltDetail.Controls.Add(textBoxYCoordDetail);
-            groupBoxBoltDetail.Location = new Point(12, 330);
+            groupBoxBoltDetail.Location = new Point(12, 420);
             groupBoxBoltDetail.Name = "groupBoxBoltDetail";
             groupBoxBoltDetail.Size = new Size(660, 110);
             groupBoxBoltDetail.TabIndex = 1;
             groupBoxBoltDetail.TabStop = false;
-            groupBoxBoltDetail.Text = "Anchor Bolt Angles and Coordinates (Section 6)";
+            groupBoxBoltDetail.Text = "Anchor Bolt Angles and Coordinates";
             // 
             // labelBoltSelect
             // 
@@ -466,7 +556,7 @@ namespace WaterTankTool_WFA.Foundation_Properties
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(680, 460);
+            ClientSize = new Size(680, 540);
             Controls.Add(groupBoxBoltDetail);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -500,6 +590,11 @@ namespace WaterTankTool_WFA.Foundation_Properties
         private Label label16;
         private Label label17;
         private Label label18;
+        private Label labelTbp;
+        private Label labelMu;
+        private Label labelFcPrime;
+        private Label labelHef;
+        private Label labelDistMethod;
         private Label labelEdgeDistanceStatus;
         private TextBox textBox1;
         private TextBox textBox2;
@@ -517,6 +612,11 @@ namespace WaterTankTool_WFA.Foundation_Properties
         private TextBox textBox16;
         private TextBox textBox17;
         private TextBox textBox18;
+        private TextBox textBoxTbp;
+        private TextBox textBoxMu;
+        private TextBox textBoxFcPrime;
+        private TextBox textBoxHef;
+        private TextBox textBoxDistMethod;
         private Label labelStatus;
         private Label labelBreakoutStatus;
         
@@ -534,3 +634,4 @@ namespace WaterTankTool_WFA.Foundation_Properties
         private TextBox textBoxYCoordDetail;
     }
 }
+

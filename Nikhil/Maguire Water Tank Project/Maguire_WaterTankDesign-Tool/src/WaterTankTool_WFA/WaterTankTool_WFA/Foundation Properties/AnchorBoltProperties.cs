@@ -172,6 +172,14 @@ namespace WaterTankTool_WFA.Foundation_Properties
             textBox7.Text = (chordSpacing * 12.0).ToString("F2"); // Convert to inches
             textBox8.Text = boltsPerSegment?.ToString("F4") ?? "";
             textBox9.Text = clearEdgeDistance?.ToString("F4") ?? "";
+            
+            // New Input Reference Fields
+            textBoxTbp.Text = anchorBolt.Tbp.ToString("F4");
+            textBoxMu.Text = anchorBolt.Mu?.ToString("F4") ?? "0.0000";
+            textBoxFcPrime.Text = anchorBolt.FcPrime?.ToString("F4") ?? "0.0000";
+            textBoxHef.Text = anchorBolt.Hef?.ToString("F4") ?? "0.0000";
+            textBoxDistMethod.Text = anchorBolt.DistributionMethod ?? "Circular Group";
+
             textBox18.Text = totalTensionTu.ToString("F4"); // New field: Total Uplift (Tu)
             textBox10.Text = tensionPerBolt.ToString("F4");
             textBox11.Text = shearPerBolt.ToString("F4");
