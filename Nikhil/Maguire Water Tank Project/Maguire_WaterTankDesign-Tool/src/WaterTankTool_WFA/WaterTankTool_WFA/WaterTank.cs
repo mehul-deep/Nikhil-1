@@ -99,7 +99,7 @@ namespace WaterTankTool_WFA
 
             designDetailsLabel = new ToolStripStatusLabel
             {
-                Text = $"Tank: - | Total Weight: 0Kips | Area: 0ft²",
+                Text = $"Tank: - | Total Weight: 0Kips | Area: 0ftï¿½",
                 Spring = true,
                 TextAlign = ContentAlignment.MiddleRight
             };
@@ -760,6 +760,12 @@ namespace WaterTankTool_WFA
         {
             RingWallFoundation ringWallFoundation = new RingWallFoundation();
             ringWallFoundation.ShowDialog();
+        }
+
+        private void footingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Placeholder for Footing design logic
+            MessageBox.Show("Footing Design module coming soon.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void materialToolStripMenuItem1_Click(object sender, EventArgs e)

@@ -35,5 +35,10 @@ namespace WaterTankTool_WFA.Foundation_Design
             RingWallProperties ringWallProperties = new RingWallProperties();
             ringWallProperties.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Footing Analysis module coming soon.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

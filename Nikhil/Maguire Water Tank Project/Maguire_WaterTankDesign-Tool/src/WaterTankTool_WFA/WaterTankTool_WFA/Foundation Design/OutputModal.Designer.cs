@@ -1,4 +1,4 @@
-﻿namespace WaterTankTool_WFA.Foundation_Design
+namespace WaterTankTool_WFA.Foundation_Design
 {
     partial class OutputModal
     {
@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OutputModal));
             button1 = new Button();
             button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
             label1 = new Label();
             label2 = new Label();
-            pictureBox1 = new PictureBox();
             label3 = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            label4 = new Label();
             SuspendLayout();
             // 
             // button1
             // 
             button1.BackColor = SystemColors.ButtonShadow;
-            button1.BackgroundImage = Properties.Resources.SS12;
+            button1.BackgroundImage = Properties.Resources.SS10;
             button1.BackgroundImageLayout = ImageLayout.Stretch;
             button1.ForeColor = SystemColors.ControlText;
-            button1.Location = new Point(38, 38);
+            button1.Location = new Point(25, 38);
             button1.Name = "button1";
             button1.Size = new Size(120, 98);
             button1.TabIndex = 0;
@@ -55,19 +55,41 @@
             // 
             // button2
             // 
-            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
+            button2.BackgroundImage = Properties.Resources.SS10_1;
             button2.BackgroundImageLayout = ImageLayout.Stretch;
-            button2.Location = new Point(176, 38);
+            button2.Location = new Point(165, 38);
             button2.Name = "button2";
             button2.Size = new Size(120, 98);
             button2.TabIndex = 1;
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // button3
+            // 
+            button3.BackgroundImage = Properties.Resources.SS11;
+            button3.BackgroundImageLayout = ImageLayout.Stretch;
+            button3.Location = new Point(305, 38);
+            button3.Name = "button3";
+            button3.Size = new Size(120, 98);
+            button3.TabIndex = 4;
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += pictureBox1_Click;
+            // 
+            // button4
+            // 
+            button4.BackgroundImage = Properties.Resources.SS11_1;
+            button4.BackgroundImageLayout = ImageLayout.Stretch;
+            button4.Location = new Point(445, 38);
+            button4.Name = "button4";
+            button4.Size = new Size(120, 98);
+            button4.TabIndex = 6;
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(55, 141);
+            label1.Location = new Point(50, 141);
             label1.Name = "label1";
             label1.Size = new Size(70, 15);
             label1.TabIndex = 2;
@@ -76,39 +98,39 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(203, 141);
+            label2.Location = new Point(195, 141);
             label2.Name = "label2";
             label2.Size = new Size(60, 15);
             label2.TabIndex = 3;
             label2.Text = "Base Plate";
             // 
-            // pictureBox1
-            // 
-            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(315, 39);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(108, 97);
-            pictureBox1.TabIndex = 4;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
-            // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(345, 141);
+            label3.Location = new Point(335, 141);
             label3.Name = "label3";
             label3.Size = new Size(57, 15);
             label3.TabIndex = 5;
             label3.Text = "Ring Wall";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(480, 141);
+            label4.Name = "label4";
+            label4.Size = new Size(48, 15);
+            label4.TabIndex = 7;
+            label4.Text = "Footing";
+            // 
             // OutputModal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(456, 189);
+            ClientSize = new Size(600, 189);
+            Controls.Add(label4);
+            Controls.Add(button4);
             Controls.Add(label3);
-            Controls.Add(pictureBox1);
+            Controls.Add(button3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(button2);
@@ -120,7 +142,6 @@
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterParent;
             Text = "Select Segment to Analyze";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -129,9 +150,11 @@
 
         private Button button1;
         private Button button2;
+        private Button button3;
+        private Button button4;
         private Label label1;
         private Label label2;
-        private PictureBox pictureBox1;
         private Label label3;
+        private Label label4;
     }
 }

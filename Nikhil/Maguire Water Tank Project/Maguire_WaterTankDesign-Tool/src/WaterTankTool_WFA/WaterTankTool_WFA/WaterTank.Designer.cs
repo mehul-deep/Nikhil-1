@@ -61,6 +61,7 @@ partial class WaterTank
         basePlateToolStripMenuItem = new ToolStripMenuItem();
         designToolStripMenuItem = new ToolStripMenuItem();
         analyzeToolStripMenuItem = new ToolStripMenuItem();
+        footingToolStripMenuItem = new ToolStripMenuItem();
         aboutToolStripMenuItem = new ToolStripMenuItem();
         exportOutputToolStripMenuItem = new ToolStripMenuItem();
         toolStrip1 = new ToolStrip();
@@ -241,7 +242,7 @@ partial class WaterTank
         // 
         // foundationToolStripMenuItem
         // 
-        foundationToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { materialToolStripMenuItem1, geoTechnicalPropertiesToolStripMenuItem, loadToolStripMenuItem1, anchorToolStripMenuItem, basePlateToolStripMenuItem, designToolStripMenuItem, analyzeToolStripMenuItem });
+        foundationToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { materialToolStripMenuItem1, geoTechnicalPropertiesToolStripMenuItem, loadToolStripMenuItem1, anchorToolStripMenuItem, basePlateToolStripMenuItem, designToolStripMenuItem, footingToolStripMenuItem, analyzeToolStripMenuItem });
         foundationToolStripMenuItem.Name = "foundationToolStripMenuItem";
         resources.ApplyResources(foundationToolStripMenuItem, "foundationToolStripMenuItem");
         // 
@@ -266,21 +267,30 @@ partial class WaterTank
         // anchorToolStripMenuItem
         // 
         resources.ApplyResources(anchorToolStripMenuItem, "anchorToolStripMenuItem");
-        anchorToolStripMenuItem.Image = Properties.Resources.SS12;
+        anchorToolStripMenuItem.Image = Properties.Resources.SS10;
         anchorToolStripMenuItem.Name = "anchorToolStripMenuItem";
         anchorToolStripMenuItem.Click += anchorToolStripMenuItem_Click;
         // 
         // basePlateToolStripMenuItem
         // 
         resources.ApplyResources(basePlateToolStripMenuItem, "basePlateToolStripMenuItem");
+        basePlateToolStripMenuItem.Image = Properties.Resources.SS10_1;
         basePlateToolStripMenuItem.Name = "basePlateToolStripMenuItem";
         basePlateToolStripMenuItem.Click += basePlateToolStripMenuItem_Click;
         // 
         // designToolStripMenuItem
         // 
+        designToolStripMenuItem.Image = Properties.Resources.SS11;
         designToolStripMenuItem.Name = "designToolStripMenuItem";
         resources.ApplyResources(designToolStripMenuItem, "designToolStripMenuItem");
         designToolStripMenuItem.Click += designToolStripMenuItem_Click;
+        // 
+        // footingToolStripMenuItem
+        // 
+        footingToolStripMenuItem.Image = Properties.Resources.SS11_1;
+        footingToolStripMenuItem.Name = "footingToolStripMenuItem";
+        resources.ApplyResources(footingToolStripMenuItem, "footingToolStripMenuItem");
+        footingToolStripMenuItem.Click += footingToolStripMenuItem_Click;
         // 
         // analyzeToolStripMenuItem
         // 
@@ -637,5 +647,6 @@ partial class WaterTank
     private ToolStripMenuItem materialToolStripMenuItem1;
     private ToolStripMenuItem geoTechnicalPropertiesToolStripMenuItem;
     private ToolStripMenuItem loadToolStripMenuItem1;
+    private ToolStripMenuItem footingToolStripMenuItem;
     private ToolStripMenuItem riserToolStripMenuItem;
 }

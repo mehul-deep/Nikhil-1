@@ -182,6 +182,11 @@ Latest Updates (May 20, 2026):
 Please read Notes.txt in the Maguire_WaterTankDesign-Tool\src directory to get the full context of the project.
    Specifically, review all the files to get a deep knowledge of the codebase. Let me kniw once you are done
 
+Prompt:
+"Please read 'Notes.txt' and 'Notes1.txt' in the Maguire_WaterTankDesign-Tool\src directory. They contain the full
+  project background and a summary of the latest Anchor Bolt module fixes, UI refinements, and mathematical validations.
+  Once you're briefed, let me know so we can continue."
+
 If to push to update to github:
 
 cd C:\Users\nikhil.chaudhary\Documents\Nikhil 1

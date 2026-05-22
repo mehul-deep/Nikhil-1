@@ -2204,9 +2204,11 @@
     <value>204, 30</value>
   </data>
   <data name="designToolStripMenuItem.Text" xml:space="preserve">
-    <value>RingWall Foundation</value>
+    <value>RingWall</value>
   </data>
-  <data name="analyzeToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="footingToolStripMenuItem.Text" xml:space="preserve">
+    <value>Footing</value>
+  </data>  <data name="analyzeToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
