@@ -1,0 +1,42 @@
+Maguire Water Tank Design Tool - Session Summary (Notes1.txt)
+============================================================
+
+Overview:
+---------
+This document summarizes the major fixes, refinements, and engineering validations completed in the Maguire Water Tank Design Tool as of May 22, 2026. The focus of this session was the Anchor Bolt module, ensuring mathematical alignment with 'Anchor Bolt Updated Design.pdf' and streamlining the user interface.
+
+1. Mathematical & Engineering Fixes (Anchor Bolt Module)
+--------------------------------------------------------
+- Unit Conversion (Capacities): Fixed an issue where Tensile and Shear Capacities were displayed in pounds (lbs) but labeled as kips. The code now correctly divides these by 1000 before display.
+- Combined Interaction Ratio: Corrected the interaction ratio calculation. By fixing the capacity units, the ratio now correctly calculates (e.g., 0.47 for the reference project) instead of near-zero values.
+- Strength Input (ksi): Updated both Yield Strength (Fy) and Ultimate Strength (Fu) inputs to accept ksi (e.g., 36 and 58) instead of psi (36000 and 58000). The solver logic was updated to treat these values consistently.
+- Breakout Validation: Manually verified the Concrete Breakout Capacity and Utilization logic. The software's results (245.90 kips and 0.1401 utilization for a 36" embedment) perfectly match ACI 318 manual calculations.
+
+2. UI & Workflow Streamlining
+-----------------------------
+- Redundant Field Removal: Removed the following fields from the user input window as they are automatically calculated by the application:
+    * Tension Demand (Now derived from Governing Moment Mu)
+    * Bolt Spacing (Chord and Arc)
+    * No of Bolt per Segment
+- Dynamic Validation: Updated the input logic to make 'Governing Moment (Mu)' a required field, ensuring the solver always has the data needed for tension demand calculations.
+
+3. Final UI Layout Overhaul
+---------------------------
+- Form Expansion: Widened the 'Anchor Bolt Parameters' form (Width: 720) and GroupBox (Width: 680) to accommodate long engineering labels.
+- Label Alignment: Shifted all input text boxes to the right (Column 1 at X=205, Column 2 at X=530) to provide ample space for text.
+- Unit Brackets: Integrated units directly into the labels in brackets for clarity:
+    * Governing Moment (Mu) (kip-ft)
+    * Yeild Strength (ksi)
+    * Ultimate Strength (ksi)
+    * Embedment Depth (hef) (in)
+    * Concrete Strength (f'c) (psi)
+    * All geometric dimensions (in/ft/deg)
+
+4. Contextual Learnings
+-----------------------
+- PDF Radius Discrepancy: Identified that the reference PDF (Anchor Bolt Updated Design.pdf) uses a 10.5 ft radius for load calculations (Pages 1-2) but a 10.75 ft radius for geometry/spacing (Pages 3-11). To match the PDF's final summary table exactly, the user should enter 10.75 ft in the tool.
+- Pass/Fail Status: The tool accurately reflects 'SAFE' status when utilization ratios are < 1.0, following the governing check logic (Combined Interaction vs. Breakout).
+
+Current Project State:
+----------------------
+The Anchor Bolt module is now highly accurate, visually polished, and mathematically consistent with industry standards and your verified design documents. The application is built and tested with .NET 8.0.

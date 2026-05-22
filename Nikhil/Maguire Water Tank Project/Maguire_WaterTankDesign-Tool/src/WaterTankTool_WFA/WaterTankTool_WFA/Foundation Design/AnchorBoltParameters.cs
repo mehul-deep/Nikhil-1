@@ -54,12 +54,9 @@ namespace WaterTankTool_WFA.Foundation_Design
 
                 textBox9.Text = _existingAnchorBolt.Fy?.ToString(CultureInfo.InvariantCulture) ?? "";
                 textBox10.Text = _existingAnchorBolt.Fu?.ToString(CultureInfo.InvariantCulture) ?? "";
-                textBox11.Text = _existingAnchorBolt.Tu.ToString(CultureInfo.InvariantCulture);
                 textBox12.Text = _existingAnchorBolt.Vu.ToString(CultureInfo.InvariantCulture);
                 textBox13.Text = _existingAnchorBolt.Phi?.ToString(CultureInfo.InvariantCulture) ?? "";
                 textBox14.Text = _existingAnchorBolt.E?.ToString(CultureInfo.InvariantCulture) ?? "";
-                textBox15.Text = _existingAnchorBolt.S?.ToString(CultureInfo.InvariantCulture) ?? "";
-                textBox16.Text = _existingAnchorBolt.Nbs?.ToString() ?? "";
                 textBox17.Text = _existingAnchorBolt.Mu?.ToString(CultureInfo.InvariantCulture) ?? "";
                 textBox18.Text = _existingAnchorBolt.FcPrime?.ToString(CultureInfo.InvariantCulture) ?? "";
                 textBox19.Text = _existingAnchorBolt.Hef?.ToString(CultureInfo.InvariantCulture) ?? "";
@@ -98,21 +95,12 @@ namespace WaterTankTool_WFA.Foundation_Design
 
                 entity.Fy = ParseDoubleNullable(textBox9);
                 entity.Fu = ParseDoubleNullable(textBox10);
-                entity.Tu = ParseDoubleNullable(textBox11) ?? 0;
                 entity.Vu = ParseDoubleRequired(textBox12, "Shear Demand");
                 entity.Phi = ParseDoubleNullable(textBox13);
                 entity.E = ParseDoubleNullable(textBox14);
-                entity.S = ParseDoubleNullable(textBox15);
-                entity.Nbs = ParseIntNullable(textBox16);
-                entity.Mu = ParseDoubleNullable(textBox17);
+                entity.Mu = ParseDoubleRequired(textBox17, "Governing Moment (Mu)");
                 entity.FcPrime = ParseDoubleNullable(textBox18);
                 entity.Hef = ParseDoubleNullable(textBox19);
-
-                // Validation: Either Tu or Mu must be provided
-                if (entity.Tu <= 0 && (entity.Mu == null || entity.Mu <= 0))
-                {
-                    throw new Exception("Either Tension Demand or Governing Moment (Mu) must be provided.");
-                }
 
                 entity.DistributionMethod = comboBox1.SelectedItem?.ToString();
 

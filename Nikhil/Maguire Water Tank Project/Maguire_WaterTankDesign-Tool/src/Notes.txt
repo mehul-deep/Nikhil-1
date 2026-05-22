@@ -179,14 +179,8 @@ Latest Updates (May 20, 2026):
    - Updated Section 16 to show 'Factored Breakout Capacity' (phi * Nb) to align with design strength requirements.
    - Integrated automatic data refresh when updating parameters.
 
-NEXT STEPS:
-1. Align the 'Anchor Bolt Parameters' (User Input) window layout to match the design document flow.
-2. Finalize styling and grouping of the 'Anchor Bolt Properties' results window.
-3. Add Fotting Section with the image under Analysis (Select Segments to Analyze)
-4. Add image for Anker Bolt in both the side woth the updated image.
-5. Review Base Plate calculations for similar ACI/AISC compliance.
-======================================================
-
+Please read Notes.txt in the Maguire_WaterTankDesign-Tool\src directory to get the full context of the project.
+   Specifically, review all the files to get a deep knowledge of the codebase. Let me kniw once you are done
 
 If to push to update to github:
 
