@@ -46,5 +46,45 @@ namespace WaterTankTool_WFA.Entity
 
         // rb = bolt circle radius, if bolt layout is needed
         public double? Rb { get; set; }
+
+        // --- Structural Design Parameters ---
+
+        // Fy = steel yield strength (ksi)
+        public double Fy { get; set; }
+
+        // fc_prime = concrete compressive strength (psi)
+        public double Fc_prime { get; set; }
+
+        // A2 = supporting area of concrete (sq in)
+        public double? A2 { get; set; }
+
+        // Pu = factored axial load (kips)
+        public double? Pu { get; set; }
+
+        // ShellRadius = radius where the tank shell sits (ft)
+        public double? ShellRadius { get; set; }
+
+        // --- Structural Design Results ---
+
+        // fp = bearing stress demand (ksi)
+        public double? Fp { get; set; }
+
+        // phi_Pp = design bearing strength (kips)
+        public double? Phi_Pp { get; set; }
+
+        // bearing_utilization = fp / capacity_ratio
+        public double? BearingUtilization { get; set; }
+
+        // l = cantilever length (in)
+        public double? L { get; set; }
+
+        // Mu = required flexural strength (kip-in/in)
+        public double? Mu { get; set; }
+
+        // t_req = required plate thickness (in)
+        public double? T_req { get; set; }
+
+        // thickness_utilization = t_req / t
+        public double? ThicknessUtilization { get; set; }
     }
 }

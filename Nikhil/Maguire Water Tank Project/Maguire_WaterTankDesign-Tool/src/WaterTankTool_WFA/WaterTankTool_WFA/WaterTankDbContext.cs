@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WaterTankTool_WFA.Entity;
+using System;
+using System.Data;
+using System.Linq;
 
 public class WaterTankDbContext : DbContext
 {
@@ -74,10 +77,46 @@ public class WaterTankDbContext : DbContext
         try
         {
             Database.EnsureCreated();
+            UpdateBasePlateSchema();
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Error ensuring database is created: {ex.Message}");
+        }
+    }
+
+    private void UpdateBasePlateSchema()
+    {
+        try
+        {
+            var connection = Database.GetDbConnection();
+            if (connection.State != System.Data.ConnectionState.Open)
+                connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                // List of columns to add if they don't exist
+                string[] columns = new string[]
+                {
+                    "Fy", "Fc_prime", "A2", "Pu", "ShellRadius",
+                    "Fp", "Phi_Pp", "BearingUtilization",
+                    "L", "Mu", "T_req", "ThicknessUtilization"
+                };
+
+                foreach (var col in columns)
+                {
+                    try
+                    {
+                        command.CommandText = $"ALTER TABLE BasePlateEntity ADD COLUMN {col} REAL NULL;";
+                        command.ExecuteNonQuery();
+                    }
+                    catch { /* Column probably already exists */ }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error updating BasePlateEntity schema: {ex.Message}");
         }
     }
 }

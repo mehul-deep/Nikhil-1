@@ -333,6 +333,69 @@ namespace WaterTankTool_WFA.Solver_Equation
                 double y = rBar * Math.Sin(betaRad);
                 return Math.Round(y, 5);
             }
+
+            // --- Structural Design Equations ---
+
+            // Bearing Stress Demand: fp = Pu / A1
+            public double BearingStress(double axialLoadKips, double plateAreaSqIn)
+            {
+                if (plateAreaSqIn <= 0) return 0;
+                return Math.Round(axialLoadKips / plateAreaSqIn, 5);
+            }
+
+            // Design Bearing Strength: phi_Pp = phi * 0.85 * fc' * A1 * sqrt(A2/A1) <= phi * 1.7 * fc' * A1
+            public double DesignBearingStrength(double fc_prime_psi, double areaA1, double areaA2, double phi = 0.65)
+            {
+                if (areaA1 <= 0) return 0;
+
+                double fc_ksi = fc_prime_psi / 1000.0;
+                
+                // ACI 318-19 Section 22.8: sqrt(A2/A1) limit is 2.0
+                double ratio = areaA2 / areaA1;
+                double sqrtFactor = Math.Sqrt(ratio);
+                if (sqrtFactor > 2.0) sqrtFactor = 2.0;
+                if (sqrtFactor < 1.0) sqrtFactor = 1.0;
+
+                double nominalStrength = 0.85 * fc_ksi * areaA1 * sqrtFactor;
+                return Math.Round(phi * nominalStrength, 5);
+            }
+
+            // Cantilever Length: l = max(Ro - Rshell, Rshell - Ri)
+            public double CantileverLength(double outsideRadiusInches, double insideRadiusInches, double? shellRadiusInches = null)
+            {
+                if (shellRadiusInches.HasValue && shellRadiusInches.Value > 0)
+                {
+                    double l_out = outsideRadiusInches - shellRadiusInches.Value;
+                    double l_in = shellRadiusInches.Value - insideRadiusInches;
+                    return Math.Round(Math.Max(l_out, l_in), 5);
+                }
+
+                // Default to centered assumption if shell radius is not provided
+                return Math.Round((outsideRadiusInches - insideRadiusInches) / 2.0, 5);
+            }
+
+            // Bending Moment: Mu = (fp * l^2) / 2
+            public double BendingMoment(double bearingStressKsi, double cantileverLengthInches)
+            {
+                return Math.Round((bearingStressKsi * Math.Pow(cantileverLengthInches, 2)) / 2.0, 5);
+            }
+
+            // Required Thickness: t_req = l * sqrt( (2 * fp) / (phi * Fy) )
+            // This is the standard AISC/AWWA formula for base plate thickness
+            public double RequiredThickness(double cantileverLengthInches, double bearingStressKsi, double steelYieldKsi, double phi = 0.9)
+            {
+                if (phi * steelYieldKsi <= 0) return 0;
+                
+                double term = (2.0 * bearingStressKsi) / (phi * steelYieldKsi);
+                return Math.Round(cantileverLengthInches * Math.Sqrt(term), 5);
+            }
+
+            // Utilization Ratios
+            public double Utilization(double demand, double capacity)
+            {
+                if (capacity <= 0) return 0;
+                return Math.Round(demand / capacity, 5);
+            }
         }
 
         public class RingWallEquations
