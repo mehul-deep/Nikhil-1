@@ -34,7 +34,7 @@ namespace WaterTankTool_WFA
         {
             DoubleBuffered = true;
             BackColor = Color.Transparent;
-            MinimumSize = new Size(300, 280);
+            MinimumSize = new Size(300, 280); 
             Padding = new Padding(0);
             Margin = new Padding(0);
 

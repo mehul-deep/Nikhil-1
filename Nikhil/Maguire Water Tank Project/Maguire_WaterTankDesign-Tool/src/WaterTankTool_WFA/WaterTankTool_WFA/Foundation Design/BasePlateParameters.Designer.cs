@@ -123,7 +123,7 @@ namespace WaterTankTool_WFA.Foundation_Design
             label1.Location = new Point(15, 32);
             label1.Name = "label1";
             label1.Size = new Size(55, 15);
-            label1.Text = "Diameter";
+            label1.Text = "Diameter (ft)";
             // 
             // textBox1
             // 
@@ -137,7 +137,7 @@ namespace WaterTankTool_WFA.Foundation_Design
             label2.Location = new Point(15, 61);
             label2.Name = "label2";
             label2.Size = new Size(86, 15);
-            label2.Text = "Outside Radius";
+            label2.Text = "Outside Radius (ft)";
             // 
             // textBox2
             // 
@@ -151,7 +151,7 @@ namespace WaterTankTool_WFA.Foundation_Design
             label3.Location = new Point(15, 90);
             label3.Name = "label3";
             label3.Size = new Size(76, 15);
-            label3.Text = "Inside Radius";
+            label3.Text = "Inside Radius (ft)";
             // 
             // textBox3
             // 
@@ -165,7 +165,7 @@ namespace WaterTankTool_WFA.Foundation_Design
             label5.Location = new Point(15, 119);
             label5.Name = "label5";
             label5.Size = new Size(88, 15);
-            label5.Text = "Segment Angle";
+            label5.Text = "Segment Angle (deg)";
             // 
             // textBox4
             // 
@@ -179,7 +179,7 @@ namespace WaterTankTool_WFA.Foundation_Design
             label4.Location = new Point(15, 148);
             label4.Name = "label4";
             label4.Size = new Size(60, 15);
-            label4.Text = "Thickness";
+            label4.Text = "Thickness (in)";
             // 
             // textBox5
             // 
@@ -235,7 +235,7 @@ namespace WaterTankTool_WFA.Foundation_Design
             label8.Location = new Point(270, 61);
             label8.Name = "label8";
             label8.Size = new Size(110, 15);
-            label8.Text = " Bolt Hole Diameter";
+            label8.Text = "Bolt Hole Diameter (in)";
             // 
             // textBox7
             // 
@@ -249,7 +249,7 @@ namespace WaterTankTool_WFA.Foundation_Design
             label9.Location = new Point(270, 90);
             label9.Name = "label9";
             label9.Size = new Size(129, 15);
-            label9.Text = "Start Angle of Segment";
+            label9.Text = "Start Angle (deg)";
             // 
             // textBox8
             // 
@@ -263,7 +263,7 @@ namespace WaterTankTool_WFA.Foundation_Design
             label10.Location = new Point(270, 119);
             label10.Name = "label10";
             label10.Size = new Size(99, 15);
-            label10.Text = "Bolt Circle Radius";
+            label10.Text = "Bolt Circle Radius (ft)";
             // 
             // textBox9
             // 

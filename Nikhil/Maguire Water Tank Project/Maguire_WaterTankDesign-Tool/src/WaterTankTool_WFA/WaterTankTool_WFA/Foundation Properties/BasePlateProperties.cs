@@ -78,6 +78,7 @@ namespace WaterTankTool_WFA.Foundation_Properties
             double riIn = _entity.Ri * 12.0;
 
             double l_refined = eq.CantileverLength(roIn, riIn, shellRadiusIn);
+            double mu = eq.BendingMoment(fp, l_refined);
             double treq = eq.RequiredThickness(l_refined, fp, _entity.Fy);
             double thicknessUtil = eq.Utilization(treq, _entity.T);
 
@@ -88,6 +89,9 @@ namespace WaterTankTool_WFA.Foundation_Properties
 
             textBox21.Text = l_refined.ToString("F4");
             textBox22.Text = (thicknessUtil * 100).ToString("F2") + " %";
+
+            textBox17.Text = capacityStress.ToString("F4");
+            textBox18.Text = mu.ToString("F4");
 
             // Centroid
             double xc = eq.CentroidX(_entity.Ro, _entity.Ri, _entity.Theta, _entity.A ?? 0);

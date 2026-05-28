@@ -34,6 +34,10 @@ namespace WaterTankTool_WFA.Foundation_Properties
             textBox21 = new TextBox();
             label22 = new Label();
             label21 = new Label();
+            label17 = new Label();
+            textBox17 = new TextBox();
+            label18 = new Label();
+            textBox18 = new TextBox();
             textBox16 = new TextBox();
             textBox15 = new TextBox();
             label16 = new Label();
@@ -83,6 +87,10 @@ namespace WaterTankTool_WFA.Foundation_Properties
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label18);
+            groupBox1.Controls.Add(textBox18);
+            groupBox1.Controls.Add(label17);
+            groupBox1.Controls.Add(textBox17);
             groupBox1.Controls.Add(label22);
             groupBox1.Controls.Add(textBox22);
             groupBox1.Controls.Add(label21);
@@ -121,280 +129,310 @@ namespace WaterTankTool_WFA.Foundation_Properties
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(23, 17);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(484, 330);
+            groupBox1.Size = new Size(620, 330);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Base Plate Calculation Results";
             // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(330, 264);
+            label17.Name = "label17";
+            label17.Size = new Size(110, 15);
+            label17.Text = "Allow. Bearing (ksi)";
+            // 
+            // textBox17
+            // 
+            textBox17.Location = new Point(500, 261);
+            textBox17.Name = "textBox17";
+            textBox17.ReadOnly = true;
+            textBox17.Size = new Size(100, 23);
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(330, 293);
+            label18.Name = "label18";
+            label18.Size = new Size(110, 15);
+            label18.Text = "Bending Mu (k-in/in)";
+            // 
+            // textBox18
+            // 
+            textBox18.Location = new Point(500, 290);
+            textBox18.Name = "textBox18";
+            textBox18.ReadOnly = true;
+            textBox18.Size = new Size(100, 23);
+            // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(17, 35);
+            label1.Location = new Point(20, 35);
             label1.Name = "label1";
-            label1.Size = new Size(63, 15);
-            label1.Text = "Gross Area";
+            label1.Size = new Size(100, 15);
+            label1.Text = "Gross Area (sqft)";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(155, 32);
+            textBox1.Location = new Point(210, 32);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
-            textBox1.Size = new Size(79, 23);
+            textBox1.Size = new Size(100, 23);
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(17, 64);
+            label2.Location = new Point(20, 64);
             label2.Name = "label2";
-            label2.Size = new Size(53, 15);
-            label2.Text = "Net Area";
+            label2.Size = new Size(90, 15);
+            label2.Text = "Net Area (sqft)";
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(155, 61);
+            textBox2.Location = new Point(210, 61);
             textBox2.Name = "textBox2";
             textBox2.ReadOnly = true;
-            textBox2.Size = new Size(79, 23);
+            textBox2.Size = new Size(100, 23);
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(17, 90);
+            label3.Location = new Point(20, 90);
             label3.Name = "label3";
-            label3.Size = new Size(47, 15);
-            label3.Text = "Volume";
+            label3.Size = new Size(90, 15);
+            label3.Text = "Volume (cuft)";
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(155, 87);
+            textBox3.Location = new Point(210, 87);
             textBox3.Name = "textBox3";
             textBox3.ReadOnly = true;
-            textBox3.Size = new Size(79, 23);
+            textBox3.Size = new Size(100, 23);
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(17, 119);
+            label4.Location = new Point(20, 119);
             label4.Name = "label4";
-            label4.Size = new Size(114, 15);
-            label4.Text = "Weight per segment";
+            label4.Size = new Size(135, 15);
+            label4.Text = "Weight per seg (kips)";
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(155, 116);
+            textBox4.Location = new Point(210, 116);
             textBox4.Name = "textBox4";
             textBox4.ReadOnly = true;
-            textBox4.Size = new Size(79, 23);
+            textBox4.Size = new Size(100, 23);
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(17, 148);
+            label5.Location = new Point(20, 148);
             label5.Name = "label5";
-            label5.Size = new Size(73, 15);
-            label5.Text = "Total Weight";
+            label5.Size = new Size(110, 15);
+            label5.Text = "Total Weight (kips)";
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(155, 145);
+            textBox5.Location = new Point(210, 145);
             textBox5.Name = "textBox5";
             textBox5.ReadOnly = true;
-            textBox5.Size = new Size(79, 23);
+            textBox5.Size = new Size(100, 23);
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(17, 177);
+            label11.Location = new Point(20, 177);
             label11.Name = "label11";
             label11.Size = new Size(106, 15);
-            label11.Text = "Bearing Stress (fp)";
+            label11.Text = "Bearing Stress (fp, ksi)";
             // 
             // textBox11
             // 
-            textBox11.Location = new Point(155, 174);
+            textBox11.Location = new Point(210, 174);
             textBox11.Name = "textBox11";
             textBox11.ReadOnly = true;
-            textBox11.Size = new Size(79, 23);
+            textBox11.Size = new Size(100, 23);
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(17, 206);
+            label12.Location = new Point(20, 206);
             label12.Name = "label12";
             label12.Size = new Size(135, 15);
-            label12.Text = "Design Strength (phiPp)";
+            label12.Text = "Design Strength (phiPp, kips)";
             // 
             // textBox12
             // 
-            textBox12.Location = new Point(155, 203);
+            textBox12.Location = new Point(210, 203);
             textBox12.Name = "textBox12";
             textBox12.ReadOnly = true;
-            textBox12.Size = new Size(79, 23);
+            textBox12.Size = new Size(100, 23);
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(17, 235);
+            label15.Location = new Point(20, 235);
             label15.Name = "label15";
             label15.Size = new Size(110, 15);
             label15.Text = "Centroid X (ft)";
             // 
             // textBox15
             // 
-            textBox15.Location = new Point(155, 232);
+            textBox15.Location = new Point(210, 232);
             textBox15.Name = "textBox15";
             textBox15.ReadOnly = true;
-            textBox15.Size = new Size(79, 23);
+            textBox15.Size = new Size(100, 23);
             // 
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(17, 264);
+            label16.Location = new Point(20, 264);
             label16.Name = "label16";
             label16.Size = new Size(110, 15);
             label16.Text = "Centroid Y (ft)";
             // 
             // textBox16
             // 
-            textBox16.Location = new Point(155, 261);
+            textBox16.Location = new Point(210, 261);
             textBox16.Name = "textBox16";
             textBox16.ReadOnly = true;
-            textBox16.Size = new Size(79, 23);
+            textBox16.Size = new Size(100, 23);
             // 
             // label21
             // 
             label21.AutoSize = true;
-            label21.Location = new Point(17, 293);
+            label21.Location = new Point(20, 293);
             label21.Name = "label21";
             label21.Size = new Size(125, 15);
             label21.Text = "Cantilever Length (in)";
             // 
             // textBox21
             // 
-            textBox21.Location = new Point(155, 290);
+            textBox21.Location = new Point(210, 290);
             textBox21.Name = "textBox21";
             textBox21.ReadOnly = true;
-            textBox21.Size = new Size(79, 23);
+            textBox21.Size = new Size(100, 23);
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(259, 35);
+            label6.Location = new Point(330, 35);
             label6.Name = "label6";
-            label6.Size = new Size(93, 15);
-            label6.Text = "Outer arc length";
+            label6.Size = new Size(110, 15);
+            label6.Text = "Outer arc length (ft)";
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(375, 32);
+            textBox6.Location = new Point(500, 32);
             textBox6.Name = "textBox6";
             textBox6.ReadOnly = true;
-            textBox6.Size = new Size(79, 23);
+            textBox6.Size = new Size(100, 23);
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(259, 64);
+            label7.Location = new Point(330, 64);
             label7.Name = "label7";
-            label7.Size = new Size(90, 15);
-            label7.Text = "Inner arc lenght";
+            label7.Size = new Size(110, 15);
+            label7.Text = "Inner arc length (ft)";
             // 
             // textBox7
             // 
-            textBox7.Location = new Point(375, 61);
+            textBox7.Location = new Point(500, 61);
             textBox7.Name = "textBox7";
             textBox7.ReadOnly = true;
-            textBox7.Size = new Size(79, 23);
+            textBox7.Size = new Size(100, 23);
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(259, 90);
+            label8.Location = new Point(330, 90);
             label8.Name = "label8";
-            label8.Size = new Size(74, 15);
-            label8.Text = "Radial Width";
+            label8.Size = new Size(95, 15);
+            label8.Text = "Radial Width (ft)";
             // 
             // textBox8
             // 
-            textBox8.Location = new Point(375, 87);
+            textBox8.Location = new Point(500, 87);
             textBox8.Name = "textBox8";
             textBox8.ReadOnly = true;
-            textBox8.Size = new Size(79, 23);
+            textBox8.Size = new Size(100, 23);
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(259, 119);
+            label9.Location = new Point(330, 119);
             label9.Name = "label9";
-            label9.Size = new Size(88, 15);
-            label9.Text = "Centroid radius";
+            label9.Size = new Size(110, 15);
+            label9.Text = "Centroid radius (ft)";
             // 
             // textBox9
             // 
-            textBox9.Location = new Point(375, 116);
+            textBox9.Location = new Point(500, 116);
             textBox9.Name = "textBox9";
             textBox9.ReadOnly = true;
-            textBox9.Size = new Size(79, 23);
+            textBox9.Size = new Size(100, 23);
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(259, 148);
+            label10.Location = new Point(330, 148);
             label10.Name = "label10";
-            label10.Size = new Size(85, 15);
-            label10.Text = "Centroid angle";
+            label10.Size = new Size(110, 15);
+            label10.Text = "Centroid angle (deg)";
             // 
             // textBox10
             // 
-            textBox10.Location = new Point(375, 145);
+            textBox10.Location = new Point(500, 145);
             textBox10.Name = "textBox10";
             textBox10.ReadOnly = true;
-            textBox10.Size = new Size(79, 23);
+            textBox10.Size = new Size(100, 23);
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(259, 177);
+            label13.Location = new Point(330, 177);
             label13.Name = "label13";
-            label13.Size = new Size(99, 15);
-            label13.Text = "Req Thickness (treq)";
+            label13.Size = new Size(110, 15);
+            label13.Text = "Req Thickness (treq, in)";
             // 
             // textBox13
             // 
-            textBox13.Location = new Point(375, 174);
+            textBox13.Location = new Point(500, 174);
             textBox13.Name = "textBox13";
             textBox13.ReadOnly = true;
-            textBox13.Size = new Size(79, 23);
+            textBox13.Size = new Size(100, 23);
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(259, 206);
+            label14.Location = new Point(330, 206);
             label14.Name = "label14";
-            label14.Size = new Size(101, 15);
-            label14.Text = "Bearing Utilization";
+            label14.Size = new Size(120, 15);
+            label14.Text = "Bearing Utilization (%)";
             // 
             // textBox14
             // 
-            textBox14.Location = new Point(375, 203);
+            textBox14.Location = new Point(500, 203);
             textBox14.Name = "textBox14";
             textBox14.ReadOnly = true;
-            textBox14.Size = new Size(79, 23);
+            textBox14.Size = new Size(100, 23);
             // 
             // label22
             // 
             label22.AutoSize = true;
-            label22.Location = new Point(259, 235);
+            label22.Location = new Point(330, 235);
             label22.Name = "label22";
             label22.Size = new Size(110, 15);
             label22.Text = "Thickness Util (%)";
             // 
             // textBox22
             // 
-            textBox22.Location = new Point(375, 232);
+            textBox22.Location = new Point(500, 232);
             textBox22.Name = "textBox22";
             textBox22.ReadOnly = true;
-            textBox22.Size = new Size(79, 23);
+            textBox22.Size = new Size(100, 23);
             // 
             // groupBoxBoltDetail
             // 
@@ -410,7 +448,7 @@ namespace WaterTankTool_WFA.Foundation_Properties
             groupBoxBoltDetail.Controls.Add(textBoxYCoordDetail);
             groupBoxBoltDetail.Location = new Point(23, 355);
             groupBoxBoltDetail.Name = "groupBoxBoltDetail";
-            groupBoxBoltDetail.Size = new Size(484, 110);
+            groupBoxBoltDetail.Size = new Size(620, 110);
             groupBoxBoltDetail.TabIndex = 1;
             groupBoxBoltDetail.TabStop = false;
             groupBoxBoltDetail.Text = "Base Plate Bolt Angles and Coordinates";
@@ -490,7 +528,7 @@ namespace WaterTankTool_WFA.Foundation_Properties
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(530, 480);
+            ClientSize = new Size(670, 480);
             Controls.Add(groupBoxBoltDetail);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -545,6 +583,10 @@ namespace WaterTankTool_WFA.Foundation_Properties
         private TextBox textBox21;
         private Label label22;
         private TextBox textBox22;
+        private Label label17;
+        private TextBox textBox17;
+        private Label label18;
+        private TextBox textBox18;
         
         private GroupBox groupBoxBoltDetail;
         private Label labelBoltSelect;
